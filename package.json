@@ -4,19 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node app",
-    "gitadd":"git add .",
-    "gitcommit":"git commit -m 'deploy'",
-    "gitpush":"git push",
-    "gitall":"npm run gitadd && npm run gitcommit && npm run gitpush",
-    "deploy":"npm run gitall",
-    "server": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env TYPE=PROD node app",
+    "gitadd": "git add .",
+    "gitcommit": "git commit -m 'deploy'",
+    "gitpush": "git push",
+    "gitall": "npm run gitadd && npm run gitcommit && npm run gitpush",
+    "deploy": "npm run gitall",
+    "devback": "nodemon app.js",
+    "devfront":"npm start --prefix frontend",
+    "dev":"concurrently \"npm run devback\" \"npm run devfront\" --kill-others",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=true npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.9.27"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0"
   }
 }
