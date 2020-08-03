@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-if (process.env.TTPE === 'PROD') {
+if (process.env.TYPE === 'PROD') {
     app.use(express.static('frontend/build'));
     app.get('*', (req, res) => {
       res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
