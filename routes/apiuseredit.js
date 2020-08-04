@@ -1,12 +1,8 @@
 const router=require("express").Router()
 const User=require("../datamodel/User")
-const valid=require("./validation")
-const {body}=require('express-validator');
+const validator=require("./validation/errmiddle")
 
-router.post("/add",[
-    body("name").exists().notEmpty().isLength({max:34}),
-    valid
-],async (req,res,next)=>{
+router.post("/add",validator.adduser,async (req,res,next)=>{
     console.log("to add",req.body)
     const d=new User({
         name:req.body.name,
@@ -20,7 +16,7 @@ router.post("/add",[
     }
 })
 
-router.post("/update",async (req,res,next)=>{
+router.post("/update",validator.update,async (req,res,next)=>{
     console.log("to add",req.body)
     const {id,update}=req.body
     try{
@@ -38,10 +34,7 @@ router.post("/update",async (req,res,next)=>{
     }
 })
 
-router.post("/del",[
-    body("id").isLength({max:24},{min:24}),
-    valid
-],async (req,res,next)=>{
+router.post("/del",validator.del,async (req,res,next)=>{
     const {id}=req.body
     try{
         const s=User.deleteOne({_id:id})
