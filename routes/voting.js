@@ -26,4 +26,9 @@ router.post("/",validator.voting,async (req,res,next)=>{
     }
 })
 
+router.get("/getlis",async(req,res,next)=>{
+    const list=await User.find()
+    res.send(list)
+})
+
 module.exports=router

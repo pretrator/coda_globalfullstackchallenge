@@ -50,9 +50,6 @@ router.post("/del",validator.del,async (req,res,next)=>{
     }
 })
 
-router.get("/",async(req,res,next)=>{
-    const list=await User.find()
-    res.send(list)
-})
+
 
 module.exports=router

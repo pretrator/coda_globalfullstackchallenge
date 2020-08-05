@@ -20,12 +20,12 @@ const Div3=styled.div`
 
 
 
-const FirstChildElement=()=>{
+const FirstChildElement=({name,challenge})=>{
     
     return (<>
         <Div1>
-            <Div2>Ujjwal Srivastava</Div2>
-            <Div3>Solved 34 Challenges</Div3>
+    <Div2>{name}</Div2>
+            <Div3>Solved {challenge} Challenges</Div3>
         </Div1>
     </>)
 }

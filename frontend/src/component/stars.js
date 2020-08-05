@@ -10,11 +10,11 @@ const checked={
 
 const Stars=()=>{
     return (<>
-        <span class="fa fa-star" style={checked}></span>
-        <span class="fa fa-star" style={checked}></span>
-        <span class="fa fa-star" style={checked}></span>
-        <span class="fa fa-star-o"></span>
-        <span class="fa fa-star-o"></span>
+        <span className="fa fa-star" style={checked}></span>
+        <span className="fa fa-star" style={checked}></span>
+        <span className="fa fa-star" style={checked}></span>
+        <span className="fa fa-star-o"></span>
+        <span className="fa fa-star-o"></span>
     </>)
 }
 

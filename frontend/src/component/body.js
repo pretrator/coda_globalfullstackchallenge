@@ -1,8 +1,10 @@
-import React from "react"
+import React,{useEffect} from "react"
 import styled from 'styled-components'
 import FirstClildEmenent from "./firstchildelement"
 import SecondChild from "./top/secondchildelem"
 import ThirdChild from "./top/thirdchildelem"
+import PropTypes from 'prop-types';
+import {connect, useDispatch} from 'react-redux';
 
 const Parent=styled.div`
     display:flex;
@@ -22,19 +24,37 @@ const Child=styled.div`
     justify-content:space-between;
 `
 
-const BodyListContainer=()=>{
+const BodyListContainer=({list,loading})=>{
+
+    if(loading){
+        return <h1>Loading List</h1>
+    }
+    
+    if(list){
+        console.log("List is ",list)
+    }
     return (
         <>
         <Parent>
-        <Child>
-            <FirstClildEmenent />
-            <SecondChild />
-            <ThirdChild />
-        </Child>
+            {list.map((i)=>{
+                return <Child>
+                <FirstClildEmenent name={i.name} challenge={i.challenges}/>
+                <SecondChild />
+                <ThirdChild />
+            </Child>
+            })}
         <Child style={{"backgroundColor":"orange"}}>part2</Child>
         </Parent>
         </>
     )
 }
 
-export default BodyListContainer;
+BodyListContainer.propTypes = {
+}
+
+const mapStateToProps=state=>({
+    list:state.hackers.hackers,
+    loading:state.hackers.loading
+})
+
+export default connect(mapStateToProps,{}) (BodyListContainer)
