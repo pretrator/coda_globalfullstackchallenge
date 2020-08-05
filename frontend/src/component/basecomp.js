@@ -16,13 +16,12 @@ const BaseComp=({
         console.log("adding")
         getusertoken()
     },[])
-
-
+    const local=()=>localStorage.clear()
     return (<>
         <h1>{loading?"Loading":"Not Loading"}</h1>
         <h1>{loggedIn?"LoggedIn":"Not LoggedIn"}</h1>
         <h1>{token?token:"No token"}</h1>
-        <button onClick={()=>localStorage.clear()} >sfsdfsdf</button>
+        <button onClick={local} >sfsdfsdf</button>
         </>
     );
 }
