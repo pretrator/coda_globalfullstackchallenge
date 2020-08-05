@@ -1,0 +1,27 @@
+div{
+    display:flex;
+}
+
+.top{
+    flex-direction: row;
+   
+}
+
+h1{
+    color:#fdcb9e;
+    font-size: 50;
+}
+
+.top-member{
+    color:fdcb9e;
+    flex:1;
+    flex-direction: column;
+}
+
+.left{
+    align-items: center;
+}
+
+.right{
+    align-items: flex-end;
+}

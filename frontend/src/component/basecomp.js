@@ -2,7 +2,8 @@ import React,{useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {connect, useDispatch} from 'react-redux';
 import {getusertoken} from "../actions/auth"
-import auth from '../reducers/auth';
+import Top from "./top/top"
+import Body from "./body"
 
 const BaseComp=({
     token,
@@ -10,18 +11,13 @@ const BaseComp=({
     loading,
     getusertoken
 })=>{
-    const dispatch=useDispatch();
-
     useEffect(()=>{
-        console.log("adding")
         getusertoken()
     },[])
-    const local=()=>localStorage.clear()
+    
     return (<>
-        <h1>{loading?"Loading":"Not Loading"}</h1>
-        <h1>{loggedIn?"LoggedIn":"Not LoggedIn"}</h1>
-        <h1>{token?token:"No token"}</h1>
-        <button onClick={local} >sfsdfsdf</button>
+        <Top />
+        <Body />
         </>
     );
 }

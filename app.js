@@ -10,7 +10,6 @@ const getvotingtoken=require("./routes/givevotingtoken")
 
 const app = express()
 
-//app.use(helmet());
 app.use(bodyParser.json())
 app.use("/api",auth.admin,api)
 app.use("/vote",auth.user,voter)

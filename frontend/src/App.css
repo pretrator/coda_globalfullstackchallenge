@@ -1,8 +1,4 @@
-body {
-  background: url(../src/asset/moroccan-flower-dark.png);
-  background-repeat:repeat;
-}
-
-h1{
-    color:grey;
+body{
+  background: url("./asset/moroccan-flower-dark.png");
+  font-family: 'Roboto', sans-serif;
 }
