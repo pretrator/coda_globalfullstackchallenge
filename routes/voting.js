@@ -1,5 +1,5 @@
 const router=require("express").Router()
-const voter=require("../datamodel/Voter")
+const voter=require("../datamodel/voter")
 const User=require("../datamodel/User")
 const validator=require("./validation/errmiddle")
 const requestIp = require('request-ip')
