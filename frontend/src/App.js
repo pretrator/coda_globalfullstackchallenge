@@ -1,11 +1,14 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import "./App.css"
+import {Provider} from 'react-redux';
+import store from './store';
+import BaseComp from "./component/basecomp"
 function App() {
 
   return (
-    <div className="App">
-      <h1>This is red car</h1>
-    </div>
+    <Provider store={store}>
+      <BaseComp />
+    </Provider>
   );
 }
 

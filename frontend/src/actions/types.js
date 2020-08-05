@@ -1,0 +1,2 @@
+export const GET_USER_TOKEN='GET_USER_TOKEN';
+export const GOT_USER_TOKEN='GOT_USER_TOKEN';
