@@ -44,7 +44,6 @@ const BodyListContainer=({list,loading})=>{
                 <ThirdChild idkey={i._id}/>
             </Child>
             })}
-        <Child style={{"backgroundColor":"orange"}}>part2</Child>
         </Parent>
         </>
     )
