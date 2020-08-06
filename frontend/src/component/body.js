@@ -55,7 +55,7 @@ BodyListContainer.propTypes = {
 
 const mapStateToProps=state=>({
     list:state.hackers.hackers,
-    loading:state.hackers.loading
+    loading:state.hackers.loadingt
 })
 
 export default connect(mapStateToProps,{}) (BodyListContainer)

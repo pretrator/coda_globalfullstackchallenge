@@ -10,5 +10,8 @@ export const castvote=(id)=>async dispatch=>{
         .then((res)=>{
             alert(res.msg)
         })
+        .catch(()=>{
+            alert("Already Voted")
+        })
 
 }
