@@ -10,9 +10,10 @@ export const castvote=(id)=>async dispatch=>{
         .then((res)=>res.data)
         .then((res)=>{
             alert(res.msg)
+            dispatch(getlist())
         })
         .catch(()=>{
             alert("Already Voted")
         })
-        dispatch(getlist());
+        
 }
