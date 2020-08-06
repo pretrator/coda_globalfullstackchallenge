@@ -1,4 +1,5 @@
 import axios from "axios"
+import {getlist} from "../actions/getlist"
 
 export const castvote=(id)=>async dispatch=>{
         const data={
@@ -13,5 +14,5 @@ export const castvote=(id)=>async dispatch=>{
         .catch(()=>{
             alert("Already Voted")
         })
-
+        dispatch(getlist())
 }
