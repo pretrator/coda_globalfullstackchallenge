@@ -5,10 +5,9 @@ const getvalidator={
     adduser: [body("name").exists().notEmpty().isLength({max:34})],
     del: [body("id").isLength({max:24},{min:24})],
     update: [
-        body("id").isLength({max:24},{min:24}),
         body("update").exists(),
         body("update.name").optional().notEmpty().isLength({max:34}),
-        body("update.votes").not().exists(),
+        body("update.votes").optional().toInt(),
         body("update.challenges").optional().isLength({max:20}).toInt(),
         body("update.expertin.*").optional().toInt().isIn([0,1,2,3,4,5])
     ],

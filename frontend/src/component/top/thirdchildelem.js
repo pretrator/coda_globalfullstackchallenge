@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components'
 import {castvote} from "../../actions/voting"
 import {connect} from 'react-redux';
-import { useLocation } from "react-router-dom";
+import { useLocation,useHistory} from "react-router-dom";
 import {deleteid} from '../../actions/admin'
 
 const Div1=styled.div`
@@ -27,6 +27,7 @@ const Button=styled.button`
 
 const ThirdChildElement=({idkey,castvote,deleteid,admintoken})=>{
     const loc=useLocation();
+    const hist=useHistory();
     if(loc.pathname=="/"){
         return (<>
             <Div1>
@@ -38,7 +39,7 @@ const ThirdChildElement=({idkey,castvote,deleteid,admintoken})=>{
         return (<>
             <Div1>
             <Button id={idkey} onClick={(e)=>deleteid(e.target.id,admintoken)}>Delete</Button>
-            <Button id={idkey} onClick={(e)=>castvote(e.target.id)}>Edit</Button>
+            <Button id={idkey} onClick={(e)=>hist.push(`admin/update/${e.target.id}`)}>Edit</Button>
             </Div1>
         </>)
     }

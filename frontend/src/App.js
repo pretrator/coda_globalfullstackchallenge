@@ -4,6 +4,8 @@ import {Provider} from 'react-redux';
 import store from './store';
 import BaseComp from "./component/basecomp"
 import Admin from "./component/admincomp/admin"
+import Edit from "./component/admincomp/edit"
+
 import {
   BrowserRouter as Router,
   Switch, Route, Link
@@ -14,6 +16,7 @@ function App() {
     <Router>
     <Switch>
     <Provider store={store}>
+    <Route exact path="/admin/update/:id" component={Edit}/>
       <Route exact path="/admin">
         <Admin />
       </Route>

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from 'styled-components'
+import { useLocation } from "react-router-dom"
 
 const Div1=styled.div`
     flex:2;
@@ -20,12 +21,13 @@ const Div3=styled.div`
 
 
 
-const FirstChildElement=({name,challenge})=>{
-    
+const FirstChildElement=({name,challenge,votes})=>{
+    const loc=useLocation()
     return (<>
         <Div1>
-    <Div2>{name}</Div2>
+    <Div2>{name[0].toUpperCase()+name.slice(1)}</Div2>
             <Div3>Solved {challenge} Challenges</Div3>
+            <Div3>Votes: {votes}</Div3>
         </Div1>
     </>)
 }

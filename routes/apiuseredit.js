@@ -24,19 +24,19 @@ router.post("/add",validator.adduser,async (req,res,next)=>{
 router.post("/update",validator.update,async (req,res,next)=>{
     console.log("to add",req.body)
     const {id,update}=req.body
-    try{
-        User.findByIdAndUpdate(
-            {_id:id},
-            update,
-            ()=>{
+    User.findByIdAndUpdate({_id:id},update)
+        .then(()=>{
                 res.send({
                     msg:"Updated"
                 })
             })
-        }
-    catch(e){
-        next(e)
-    }
+        .catch((e)=>{
+            res.send({
+                msg:"Updation Failed",
+                err:e
+            })
+        })
+        
 })
 
 router.post("/del",validator.del,async (req,res,next)=>{

@@ -37,8 +37,9 @@ const BodyListContainer=({list,loading})=>{
         <>
         <Parent>
             {list.map((i)=>{
+                console.log("Printig i",i)
                 return <Child>
-                <FirstClildEmenent name={i.name} challenge={i.challenges}/>
+                <FirstClildEmenent name={i.name} challenge={i.challenges} votes={i.votes}/>
                 <SecondChild expertise={i.expertin}/>
                 <ThirdChild idkey={i._id}/>
             </Child>

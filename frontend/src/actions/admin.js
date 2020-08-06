@@ -24,5 +24,19 @@ export const addnew=(token)=>async dispatch=>{
     .then((res)=>{
         alert(res.data.msg)
     })
+    .catch(()=>{
+        alert("Addition Failed Please Sanitize the value")
+    })
+    dispatch(getlist())
+}
+
+export const update=(token,id,data)=>async dispatch=>{
+    axios.post("/api/update",{token:token,id:id,update:data})
+    .then((res)=>{
+        alert(res.data.msg)
+    })
+    .catch(()=>{
+        alert("Updation Failed Please Sanitize the value or Acces denied")
+    })
     dispatch(getlist())
 }

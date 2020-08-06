@@ -33,7 +33,7 @@ const SecondChildElement=({expertise})=>{
         arr.push(
             <Div3>
                 <Div4>
-                    {a}
+                    {a[0].toUpperCase()+a.slice(1)}
                 </Div4>
                 <Div4>
                     <Star rating={expertise[a]}/>

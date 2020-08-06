@@ -16,7 +16,6 @@ const Stars=({rating})=>{
     for(let j=rating;j<5;j++){
         arr.push(<span className="fa fa-star-o"></span>)
     }
-    console.log(arr)
     return (<>
       {arr}  
     </>)

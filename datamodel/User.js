@@ -19,7 +19,6 @@ const User = mongoose.model('User', {
         algo:Number,
         java:Number,
         python:Number,
-        cpp:Number
       }
 });
 
