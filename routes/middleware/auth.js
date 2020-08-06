@@ -30,9 +30,11 @@ user:(req,res,next)=>{
             console.log("User access granted")
             next()
         }
-        res.status(500).send({
+        else{
+            res.status(500).send({
             msg:"Bad token proided"
         })
+    }
     }
     catch(e){
     res.send({

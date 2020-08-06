@@ -39,8 +39,8 @@ const BodyListContainer=({list,loading})=>{
             {list.map((i)=>{
                 return <Child>
                 <FirstClildEmenent name={i.name} challenge={i.challenges}/>
-                <SecondChild />
-                <ThirdChild />
+                <SecondChild expertise={i.expertin}/>
+                <ThirdChild idkey={i._id}/>
             </Child>
             })}
         <Child style={{"backgroundColor":"orange"}}>part2</Child>

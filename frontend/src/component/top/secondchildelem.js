@@ -26,18 +26,26 @@ const Div4=styled.div`
     display:flex;
 `
 
-const SecondChildElement=()=>{
+const SecondChildElement=({expertise})=>{
+
+    const arr=[]
+    for(let a in expertise){
+        arr.push(
+            <Div3>
+                <Div4>
+                    {a}
+                </Div4>
+                <Div4>
+                    <Star rating={expertise[a]}/>
+                </Div4>
+            </Div3>
+        )
+    }
+    
     return (<>
         <Div1>
             <Div2>Expert in</Div2>
-            <Div3>
-                <Div4>
-                    Algo
-                </Div4>
-                <Div4>
-                    <Star />
-                </Div4>
-            </Div3>
+            {arr}
         </Div1>
     
     </>)

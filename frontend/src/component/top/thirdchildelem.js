@@ -1,5 +1,7 @@
 import React from "react"
 import styled from 'styled-components'
+import {castvote} from "../../actions/voting"
+import {connect, useDispatch} from 'react-redux';
 
 const Div1=styled.div`
     display:flex;
@@ -21,12 +23,15 @@ const Button=styled.button`
       }
 `
 
-const ThirdChildElement=()=>{
+const ThirdChildElement=({idkey,castvote})=>{
     return (<>
         <Div1>
-        <Button>Vote</Button>
+        <Button id={idkey} onClick={(e)=>castvote(e.target.id)}>Vote</Button>
         </Div1>
     </>)
 }
+const mapStateToProps=state=>({
+    loading:state.auth.loading
+})
 
-export default ThirdChildElement;
+export default connect(mapStateToProps,{castvote}) (ThirdChildElement)

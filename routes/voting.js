@@ -6,29 +6,26 @@ const requestIp = require('request-ip')
 
 
 router.post("/",validator.voting,async (req,res,next)=>{
+    console.log("Recieved voting request")
     const {id}=req.body
     const vote=new voter({
         jwt:req.body.token,
     })
-    try{
-        const d=await vote.save()
-        const dd=await User.findByIdAndUpdate(
-            {_id:req.body.id},
-            {"$inc":{votes:1}})
-        res.send({
-            msg:"Vote cast Successfull"
+        vote.save()
+        .then(()=>{
+            User.findByIdAndUpdate({_id:req.body.id},{"$inc":{votes:1}})
+                .then(()=>{
+                    res.send({
+                        msg:"Vote cast Successfull"
+                    })
+                })
+            })
+        .catch(()=>{
+            res.send({
+                msg:"Vote cast Unsuccessful",
+            })
         })
-    }
-    catch(e){
-        res.status(500).send({
-            msg:"Vote cast Unsuccessful",
-        })
-    }
-})
-
-router.get("/getlis",async(req,res,next)=>{
-    const list=await User.find()
-    res.send(list)
+    
 })
 
 module.exports=router
