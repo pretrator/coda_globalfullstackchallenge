@@ -25,9 +25,10 @@ user:(req,res,next)=>{
     const {token}=req.body
     console.log("Auth User running")
     try{
-        var decoded = jwt.verify(token, process.env.JWT_SECRET);
-        console.log("decoded",decoded)
-        if(decoded.ip===requestIp.getClientIp(req)){
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const thisip=requestIp.getClientIp(req)
+        console.log("decoded",decoded,thisip)
+        if(decoded.ip===thisip){
             console.log("User access granted")
             next()
         }
