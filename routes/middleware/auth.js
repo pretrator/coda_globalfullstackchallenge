@@ -4,7 +4,7 @@ const requestIp = require('request-ip')
 module.exports={
 admin:(req,res,next)=>{
     const body=req.body
-    console.log("Auth Admin running")
+    console.log("Auth Admin running",body)
     try{
         var decoded = jwt.verify(body.token, process.env.JWT_SECRET);
         console.log(decoded)
@@ -14,7 +14,7 @@ admin:(req,res,next)=>{
         }
     }
     catch(e){
-    res.send({
+    res.status(500).send({
         code:606,
         msg:"Admin access not granted"
     })

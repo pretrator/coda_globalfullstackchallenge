@@ -9,9 +9,14 @@ router.post("/add",validator.adduser,async (req,res,next)=>{
     })
     try{
         const k=await d.save()
-        res.send({id:k._id})
+        res.send({
+            msg:"New Hacker Added"
+        })
     }
     catch(e){
+        res.send({
+            msg:"Failed to add New Hacker"
+        })
         next(e)
     }
 })
@@ -37,17 +42,22 @@ router.post("/update",validator.update,async (req,res,next)=>{
 router.post("/del",validator.del,async (req,res,next)=>{
     const {id}=req.body
     try{
-        const s=User.deleteOne({_id:id})
+        const s=await User.deleteOne({_id:id})
         res.send({
-            gh:"78",
-            d:s
+            msg:"Deleted"
         })
     }
     catch(e){
         res.send({
-            err:e
+            msg:"Failed to delete"
         })
     }
+})
+
+router.post("/isgood",(req,res,next)=>{
+    res.send({
+        msg:"Authenticated"
+    })
 })
 
 
