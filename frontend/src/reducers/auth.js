@@ -19,7 +19,6 @@ export default function(state=initialState,action){
                 loading:true,
             };
         case GOT_USER_TOKEN:
-            localStorage.setItem("token",payload.token)
             return {
                 token:payload.token,
                 loading:false,

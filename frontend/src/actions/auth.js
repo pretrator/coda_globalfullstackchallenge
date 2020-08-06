@@ -8,9 +8,7 @@ export const getusertoken=()=>async dispatch=>{
     dispatch({
         type:GET_USER_TOKEN
     })
-    const token=localStorage.token?
-    localStorage.token:
-    await axios.get("/gettoken").then((res)=>res.data.token)
+    const token=await axios.get("/gettoken").then((res)=>res.data.token)
     dispatch({
         type:GOT_USER_TOKEN,
         payload:{token}
