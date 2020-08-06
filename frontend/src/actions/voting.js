@@ -14,5 +14,5 @@ export const castvote=(id)=>async dispatch=>{
         .catch(()=>{
             alert("Already Voted")
         })
-        dispatch(getlist())
+        dispatch(getlist());
 }
