@@ -14,6 +14,7 @@ admin:(req,res,next)=>{
         }
     }
     catch(e){
+        console.log(e)
     res.status(500).send({
         code:606,
         msg:"Admin access not granted"
