@@ -14,6 +14,7 @@ function Admin({setadmintoken,token}) {
     const hist=useHistory()
     useEffect(()=>{
         if(token===null){
+        alert(" Copy this access token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtc2ciOiJhZG1pbiJ9.mL5bY6PNUKSB2vZEkbASBp7BAH6ZpgILz2b2AyJ9aFU")
         const token=prompt("Please provide admin token");
         axios.post("api/isgood",{token:token})
         .then((res)=>{
